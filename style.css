@@ -1,19 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+Tamil:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap');
 
 :root {
-  --bg-deep: #01140e;
-  --bg-dark: #021f14;
-  --bg-medium: #032a1a;
-  --bg-hero: #12040a;
-  --gold: #dfb15b;
-  --gold-light: #f0cc7a;
-  --gold-dark: #b88c32;
-  --cream: #fbf5df;
-  --faf: rgba(250,246,240,0.7);
-  --faf4: rgba(250,246,240,0.4);
-  --gold-a4: rgba(223,177,91,0.4);
-  --gold-a2: rgba(223,177,91,0.2);
-  --gold-a1: rgba(223,177,91,0.1);
+  --bg-deep: #120704;
+  --bg-dark: #1b0c06;
+  --bg-medium: #2a1309;
+  --bg-hero: #170804;
+  --stone-copper: #9a5a2f;
+  --stone-deep: #1a0803;
+  --gold: #e2ad6a;
+  --gold-light: #f0c585;
+  --gold-dark: #a76632;
+  --cream: #fff0d6;
+  --faf: rgba(255,239,214,0.74);
+  --faf4: rgba(255,239,214,0.44);
+  --gold-a4: rgba(226,173,106,0.42);
+  --gold-a2: rgba(226,173,106,0.22);
+  --gold-a1: rgba(226,173,106,0.12);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -30,7 +32,6 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.55}}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-@keyframes sealPulse{0%,100%{box-shadow:0 0 0 0 rgba(180,30,30,0.7)}70%{box-shadow:0 0 0 20px rgba(180,30,30,0)}}
 @keyframes petalFall{0%{transform:translateY(-10px) rotate(0deg) translateX(0);opacity:1}100%{transform:translateY(110vh) rotate(720deg) translateX(60px);opacity:0}}
 
 /* ---- Particles Canvas ---- */
@@ -47,18 +48,24 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .intro-content{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;padding-bottom:48px;gap:10px;width:100%;text-align:center}
 .intro-label{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;opacity:.85}
 .intro-heading{font-family:'Cinzel Decorative',Georgia,serif;font-size:clamp(28px,8vw,52px);color:var(--gold);text-shadow:0 0 30px rgba(223,177,91,0.6),0 2px 8px rgba(0,0,0,0.8);line-height:1.1;animation:goldGlow 3s ease-in-out infinite}
-.intro-seal{width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,#8b1a1a,#5a0f0f);border:3px solid rgba(223,177,91,0.5);display:flex;align-items:center;justify-content:center;font-size:36px;margin:8px auto;animation:sealPulse 2.5s infinite;box-shadow:0 0 20px rgba(139,26,26,0.6)}
 .intro-cta{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--cream);text-transform:uppercase;opacity:.8;animation:bounce 1.5s ease-in-out infinite}
 .intro-screen-exit{animation:fadeIn .4s ease reverse forwards}
 
+/* ---- Loading Screen ---- */
+#loading-screen{position:fixed;inset:0;z-index:490;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(rgba(5,1,0,0.58),rgba(5,1,0,0.7)),url('inscription_glow_transition_last2.png') center/cover no-repeat;opacity:1;transition:opacity .8s ease}
+#loading-screen.hidden{display:none}
+#loading-screen.loading-fade-out{opacity:0}
+.loading-gif{width:100%;height:100%;object-fit:contain;object-position:center center}
+
 /* ---- Main Site ---- */
-#main-site{position:relative;z-index:10}
+#main-site{position:relative;z-index:10;background:transparent}
 #main-site.hidden{display:none}
+#main-site::before{content:'';position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(18,7,4,0.7),rgba(18,7,4,0.82)),url('inscription_glow_transition_last2.png') center/cover no-repeat;pointer-events:none}
 
 /* ---- Hero Section ---- */
-.hero-section{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#12040a}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.55}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(18,4,10,0.55) 0%,rgba(18,4,10,0.35) 40%,rgba(18,4,10,0.65) 70%,rgba(18,4,10,0.9) 100%)}
+.hero-section{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(to bottom,rgba(12,4,2,0.36),rgba(18,7,4,0.82)),url('inscription_glow_transition_last2.png') center/cover no-repeat}
+.hero-bg{display:none}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 50% 34%,rgba(128,70,34,0.18) 0%,rgba(18,7,4,0.44) 48%,rgba(18,7,4,0.9) 100%)}
 .hero-content{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;padding:80px 24px 40px;width:100%;max-width:480px;margin:0 auto}
 .hero-label{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:24px;opacity:.9}
 .hero-name{font-family:'Great Vibes','Dancing Script',cursive;font-size:clamp(70px,22vw,110px);color:var(--cream);line-height:1;text-shadow:0 2px 20px rgba(0,0,0,0.6),0 0 40px rgba(223,177,91,0.15)}
@@ -66,7 +73,7 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .hero-quote{font-family:'EB Garamond','Cormorant Garamond',serif;font-size:clamp(15px,4.5vw,20px);font-style:italic;color:var(--faf);margin-top:32px;line-height:1.6}
 
 /* Save the Date Card */
-.std-card{margin-top:28px;padding:18px 28px;border:1px solid var(--gold-a4);border-radius:4px;position:relative;background:rgba(1,14,8,0.5);backdrop-filter:blur(8px);width:100%;max-width:340px}
+.std-card{margin-top:28px;padding:18px 28px;border:1px solid var(--gold-a4);border-radius:4px;position:relative;background:rgba(21,8,4,0.58);backdrop-filter:blur(8px);width:100%;max-width:340px}
 .std-card::before,.std-card::after{content:'';position:absolute;width:10px;height:10px;border-color:var(--gold);border-style:solid;opacity:.6}
 .std-card::before{top:6px;left:6px;border-width:1px 0 0 1px}
 .std-card::after{bottom:6px;right:6px;border-width:0 1px 1px 0}
@@ -86,33 +93,16 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .divider-center{font-size:12px;opacity:.8}
 
 /* ---- Countdown Section ---- */
-.countdown-section{position:relative;background:linear-gradient(135deg,#021f14 0%,#032a1a 50%,#021f14 100%);padding:64px 20px;text-align:center;overflow:hidden}
-.countdown-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(223,177,91,0.06) 0%,transparent 60%)}
+.countdown-section{position:relative;background:linear-gradient(135deg,rgba(21,8,4,0.92) 0%,rgba(47,20,9,0.88) 50%,rgba(21,8,4,0.96) 100%);padding:64px 20px;text-align:center;overflow:hidden}
+.countdown-section::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(18,7,4,0.74),rgba(18,7,4,0.86)),url('inscription_glow_transition_last2.png') center/cover no-repeat;opacity:.28}
 .section-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
 .section-badge::before,.section-badge::after{content:'';display:block;width:32px;height:1px;background:linear-gradient(to right,transparent,var(--gold-a4))}
 .section-badge::after{background:linear-gradient(to left,transparent,var(--gold-a4))}
 .countdown-title{font-family:'Dancing Script','Great Vibes',cursive;font-size:clamp(36px,10vw,64px);color:var(--gold);line-height:1.1;text-shadow:0 0 30px rgba(223,177,91,0.3);margin-bottom:16px}
 .countdown-subtitle{font-family:'EB Garamond',serif;font-size:clamp(14px,4vw,18px);font-style:italic;color:var(--faf);max-width:400px;margin:0 auto 28px;line-height:1.6;padding:0 16px}
 
-.scratch-hint{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;background:rgba(2,33,22,0.8);border:1px solid var(--gold-a2);border-radius:50px;font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:32px;backdrop-filter:blur(4px)}
-
-.scratch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:360px;margin:0 auto 28px;padding:0 12px}
-@media(min-width:500px){.scratch-grid{grid-template-columns:repeat(4,1fr);max-width:560px}}
-
-.scratch-unit{display:flex;flex-direction:column;align-items:center;gap:6px}
-.scratch-circle-wrap{position:relative;width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#dfb15b,#021f14,#b38428);padding:3px;box-shadow:0 8px 24px rgba(0,0,0,0.6)}
-@media(min-width:500px){.scratch-circle-wrap{width:120px;height:120px}}
-.scratch-circle-inner{width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#021f14,#01140d);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.scratch-circle-inner::before{content:'';position:absolute;inset:6px;border-radius:50%;border:1px solid var(--gold-a2);pointer-events:none}
-.scratch-value{font-family:'Cinzel',Georgia,serif;font-size:clamp(26px,8vw,36px);font-weight:700;color:var(--cream);text-shadow:0 2px 8px rgba(223,177,91,0.35);transition:all .3s}
-.scratch-label-text{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
-.scratch-canvas{position:absolute;inset:0;border-radius:50%;z-index:5;cursor:crosshair;touch-action:none;width:100%;height:100%}
-
-.reveal-all-btn{margin-top:8px;padding:12px 32px;border:1px solid var(--gold-a4);border-radius:50px;background:transparent;color:var(--gold);font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:all .3s}
-.reveal-all-btn:hover{background:var(--gold-a1);border-color:var(--gold)}
-
 /* ---- Parents Section ---- */
-.parents-section{position:relative;background:linear-gradient(to bottom,#021f14,#12040a);padding:64px 24px;text-align:center;overflow:hidden}
+.parents-section{position:relative;background:linear-gradient(to bottom,rgba(24,9,4,0.94),rgba(14,4,2,0.96));padding:64px 24px;text-align:center;overflow:hidden}
 .parents-section::before{content:'';position:absolute;inset:8px;border:1px solid var(--gold-a1);pointer-events:none}
 .parents-section::after{content:'';position:absolute;inset:12px;border:1px solid var(--gold-a1);border-style:dashed;pointer-events:none}
 .parents-grid{display:grid;grid-template-columns:1fr;gap:40px;max-width:600px;margin:32px auto 0;padding:0 8px}
@@ -127,13 +117,14 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .request-text em{color:var(--gold);font-style:normal;font-weight:500}
 
 /* ---- Ceremonies Section ---- */
-.ceremonies-section{background:linear-gradient(to bottom,#12040a,#080205);padding:64px 24px;text-align:center}
+.ceremonies-section{background:linear-gradient(to bottom,rgba(14,4,2,0.96),rgba(8,2,1,0.98));padding:64px 24px;text-align:center}
 .ceremonies-section-title{font-family:'Cinzel',Georgia,serif;font-size:clamp(24px,7vw,44px);color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
 .ceremonies-list{max-width:540px;margin:40px auto 0;display:flex;flex-direction:column;gap:0;position:relative}
-.ceremonies-list::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gold-a4) 10%,var(--gold-a4) 90%,transparent);transform:translateX(-50%)}
+.ceremonies-list::before{content:'';position:absolute;left:50%;top:18px;bottom:34px;width:1px;background:linear-gradient(to bottom,transparent,rgba(223,177,91,0.18) 14%,rgba(223,177,91,0.18) 86%,transparent);transform:translateX(-50%)}
 .ceremony-item{position:relative;padding:16px 0 40px;display:flex;flex-direction:column;align-items:center}
 .ceremony-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg-dark);box-shadow:0 0 0 3px var(--gold-a4);margin-bottom:16px;position:relative;z-index:2}
-.ceremony-num{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;opacity:.8}
+.ceremony-symbol{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;margin-bottom:8px;border:1px solid rgba(223,177,91,0.32);border-radius:50%;background:rgba(223,177,91,0.08);color:var(--gold);position:relative;z-index:2}
+.ceremony-symbol svg{width:14px;height:14px;stroke-width:1.7}
 .ceremony-title{font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(18px,5.5vw,24px);color:var(--cream);font-weight:700;margin-bottom:4px;line-height:1.3}
 .ceremony-subtitle{font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(13px,3.5vw,15px);color:var(--gold-a4);margin-bottom:16px;padding:0 20px;border-left:2px solid var(--gold-a2);border-right:2px solid var(--gold-a2)}
 .ceremony-meta{display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:12px}
@@ -143,47 +134,10 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .ceremony-venue-name{font-family:'Libre Baskerville',serif;font-size:14px;color:var(--cream);font-weight:700}
 .ceremony-venue-addr{font-family:'Raleway',sans-serif;font-size:11px;color:var(--faf4);letter-spacing:.03em}
 .ceremony-desc{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--faf4);line-height:1.6;max-width:340px;margin:10px auto}
-.map-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 20px;border:1px solid var(--gold-a4);border-radius:50px;background:transparent;color:var(--gold);font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .3s;cursor:pointer}
-.map-btn:hover{background:var(--gold-a1);border-color:var(--gold)}
-.ceremony-sep{width:60px;height:1px;background:var(--gold-a2);margin:0 auto}
-
-/* ---- RSVP Section ---- */
-.rsvp-section{background:linear-gradient(135deg,#021f14,#032a1a);padding:64px 24px;text-align:center}
-.rsvp-section-title{font-family:'Cinzel',Georgia,serif;font-size:clamp(22px,6vw,38px);color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
-.rsvp-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4vw,18px);color:var(--faf);margin-bottom:32px}
-
-.rsvp-form{max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:16px;text-align:left}
-.form-group{display:flex;flex-direction:column;gap:6px}
-.form-label{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
-.form-input,.form-select,.form-textarea{background:rgba(1,14,8,0.7);border:1px solid var(--gold-a2);color:var(--cream);padding:12px 16px;border-radius:6px;font-family:'Cormorant Garamond',serif;font-size:16px;outline:none;transition:border-color .3s;width:100%}
-.form-input::placeholder,.form-textarea::placeholder{color:var(--faf4)}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold-a4)}
-.form-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='m0 0 6 8 6-8z' fill='%23dfb15b'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer}
-.form-select option{background:#021f14;color:var(--cream)}
-.form-textarea{resize:vertical;min-height:90px}
-.radio-group{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.radio-btn{display:flex;align-items:center;justify-content:center;padding:9px 6px;border:1px solid var(--gold-a2);border-radius:6px;cursor:pointer;font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.1em;color:var(--faf);transition:all .3s;user-select:none}
-.radio-btn.active{border-color:var(--gold);background:var(--gold-a1);color:var(--gold)}
-.submit-btn{padding:14px 32px;border:1px solid var(--gold);border-radius:50px;background:linear-gradient(135deg,rgba(223,177,91,0.15),rgba(223,177,91,0.05));color:var(--gold);font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:8px}
-.submit-btn:hover{background:rgba(223,177,91,0.25);transform:scale(1.02);box-shadow:0 4px 20px rgba(223,177,91,0.2)}
-.submit-success{display:none;text-align:center;padding:20px;color:var(--gold);font-family:'Dancing Script',cursive;font-size:24px}
-
-/* ---- Blessing Wall ---- */
-.blessing-wall{margin-top:56px}
-.blessing-wall-title{font-family:'Cinzel',Georgia,serif;font-size:clamp(18px,5vw,28px);color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px}
-.blessing-cards{display:grid;grid-template-columns:1fr;gap:16px;max-width:500px;margin:0 auto}
-@media(min-width:500px){.blessing-cards{grid-template-columns:1fr 1fr}}
-.blessing-card{background:rgba(1,14,8,0.7);border:1px solid var(--gold-a2);border-radius:8px;padding:16px;text-align:left;backdrop-filter:blur(4px)}
-.blessing-guest{font-family:'Cinzel',serif;font-size:13px;color:var(--gold);font-weight:600;margin-bottom:4px}
-.blessing-side-badge{display:inline-block;padding:2px 8px;border-radius:20px;font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px}
-.side-groom{background:rgba(223,177,91,0.12);color:var(--gold);border:1px solid var(--gold-a2)}
-.side-bride{background:rgba(180,80,120,0.12);color:#e8a0c0;border:1px solid rgba(180,80,120,0.3)}
-.side-general{background:rgba(250,246,240,0.07);color:var(--faf);border:1px solid rgba(250,246,240,0.15)}
-.blessing-msg{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--faf);line-height:1.6}
-.blessing-date{font-family:'Raleway',sans-serif;font-size:9px;color:var(--faf4);margin-top:8px;letter-spacing:.1em}
+.ceremony-sep{width:46px;height:1px;background:rgba(223,177,91,0.14);margin:0 auto}
 
 /* ---- Footer ---- */
-.footer{background:var(--bg-deep);padding:56px 24px;text-align:center;border-top:1px solid var(--gold-a2)}
+.footer{background:rgba(12,4,2,0.98);padding:56px 24px;text-align:center;border-top:1px solid var(--gold-a2)}
 .footer-mantra{font-family:'Cinzel',Georgia,serif;font-size:clamp(12px,3.5vw,16px);color:var(--gold);letter-spacing:.2em;margin-bottom:12px}
 .footer-thanks{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4vw,18px);color:var(--faf);margin-bottom:20px}
 .footer-made{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.2em;color:var(--faf4);text-transform:uppercase}
@@ -194,3 +148,35 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 
 /* ---- Section Title ---- */
 .section-title-wrap{margin-bottom:8px}
+
+/* ---- Tamil / Updated Invitation Layout ---- */
+.tamil-text{font-family:'Noto Serif Tamil','Noto Sans Tamil',serif}
+
+.countdown-location-grid{position:relative;z-index:12;display:grid;grid-template-columns:1fr;gap:22px;max-width:1080px;margin:34px auto 0;padding:0 10px;text-align:left}
+@media(min-width:860px){.countdown-location-grid{grid-template-columns:minmax(0,1fr) minmax(360px,0.95fr);align-items:stretch}}
+
+.countdown-panel,.map-panel{border:1px solid var(--gold-a4);background:rgba(21,8,4,0.66);backdrop-filter:blur(8px);border-radius:8px;box-shadow:0 18px 44px rgba(0,0,0,0.34);overflow:hidden}
+.countdown-panel{display:flex;flex-direction:column;justify-content:center;padding:24px;min-height:320px}
+
+.countdown-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(min-width:560px){.countdown-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:860px){.countdown-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1080px){.countdown-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+.countdown-unit{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:118px;padding:18px 10px;border:1px solid var(--gold-a2);background:linear-gradient(145deg,rgba(226,173,106,0.14),rgba(22,8,4,0.72));border-radius:6px;text-align:center}
+.countdown-unit::before{content:'';position:absolute;inset:7px;border:1px solid rgba(223,177,91,0.16);border-radius:4px;pointer-events:none}
+.countdown-value{font-family:'Cinzel',Georgia,serif;font-size:clamp(34px,8vw,54px);font-weight:700;color:var(--cream);line-height:1;text-shadow:0 2px 18px rgba(223,177,91,0.28)}
+.countdown-label-text{margin-top:10px;font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+
+.venue-summary{display:flex;flex-direction:column;gap:7px;margin-top:22px;padding-top:18px;border-top:1px solid var(--gold-a2);text-align:center}
+.venue-summary strong{font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(16px,4vw,20px);color:var(--cream);line-height:1.45}
+.venue-summary span{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faf)}
+
+.map-panel{min-height:320px}
+.map-panel iframe{display:block;width:100%;height:100%;min-height:320px}
+
+@media(max-width:420px){
+  .countdown-panel{padding:18px 14px}
+  .countdown-unit{min-height:104px}
+  .venue-summary span{letter-spacing:.08em}
+}

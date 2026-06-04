@@ -66,9 +66,9 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .hero-section{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(to bottom,rgba(12,4,2,0.36),rgba(18,7,4,0.82)),url('inscription_glow_transition_last2.png') center/cover no-repeat}
 .hero-bg{display:none}
 .hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 50% 34%,rgba(128,70,34,0.18) 0%,rgba(18,7,4,0.44) 48%,rgba(18,7,4,0.9) 100%)}
-.hero-content{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;padding:80px 24px 40px;width:100%;max-width:480px;margin:0 auto}
+.hero-content{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;padding:80px 24px 40px;width:100%;max-width:760px;margin:0 auto}
 .hero-label{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:24px;opacity:.9}
-.hero-name{font-family:'Great Vibes','Dancing Script',cursive;font-size:clamp(70px,22vw,110px);color:var(--cream);line-height:1;text-shadow:0 2px 20px rgba(0,0,0,0.6),0 0 40px rgba(223,177,91,0.15)}
+.hero-name{font-family:'Dancing Script','Great Vibes',cursive;font-size:clamp(48px,12vw,96px);font-weight:600;color:var(--cream);line-height:1.08;text-shadow:0 2px 18px rgba(0,0,0,0.72),0 0 34px rgba(223,177,91,0.2)}
 .hero-amp{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,8vw,40px);color:var(--gold);font-style:italic;line-height:1;margin:0}
 .hero-quote{font-family:'EB Garamond','Cormorant Garamond',serif;font-size:clamp(15px,4.5vw,20px);font-style:italic;color:var(--faf);margin-top:32px;line-height:1.6}
 
@@ -120,7 +120,7 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .ceremonies-section{background:linear-gradient(to bottom,rgba(14,4,2,0.96),rgba(8,2,1,0.98));padding:64px 24px;text-align:center}
 .ceremonies-section-title{font-family:'Cinzel',Georgia,serif;font-size:clamp(24px,7vw,44px);color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
 .ceremonies-list{max-width:540px;margin:40px auto 0;display:flex;flex-direction:column;gap:0;position:relative}
-.ceremonies-list::before{content:'';position:absolute;left:50%;top:18px;bottom:34px;width:1px;background:linear-gradient(to bottom,transparent,rgba(223,177,91,0.18) 14%,rgba(223,177,91,0.18) 86%,transparent);transform:translateX(-50%)}
+.ceremonies-list::before{content:'';position:absolute;left:50%;top:18px;bottom:34px;width:1px;background:linear-gradient(to bottom,transparent,rgba(223,177,91,0.08) 14%,rgba(223,177,91,0.08) 86%,transparent);transform:translateX(-50%)}
 .ceremony-item{position:relative;padding:16px 0 40px;display:flex;flex-direction:column;align-items:center}
 .ceremony-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg-dark);box-shadow:0 0 0 3px var(--gold-a4);margin-bottom:16px;position:relative;z-index:2}
 .ceremony-symbol{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;margin-bottom:8px;border:1px solid rgba(223,177,91,0.32);border-radius:50%;background:rgba(223,177,91,0.08);color:var(--gold);position:relative;z-index:2}
@@ -152,11 +152,11 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 /* ---- Tamil / Updated Invitation Layout ---- */
 .tamil-text{font-family:'Noto Serif Tamil','Noto Sans Tamil',serif}
 
-.countdown-location-grid{position:relative;z-index:12;display:grid;grid-template-columns:1fr;gap:22px;max-width:1080px;margin:34px auto 0;padding:0 10px;text-align:left}
+.countdown-location-grid{position:relative;z-index:12;display:grid;grid-template-columns:1fr;gap:28px;max-width:1080px;margin:34px auto 0;padding:0 10px;text-align:left}
 @media(min-width:860px){.countdown-location-grid{grid-template-columns:minmax(0,1fr) minmax(360px,0.95fr);align-items:stretch}}
 
-.countdown-panel,.map-panel{border:1px solid var(--gold-a4);background:rgba(21,8,4,0.66);backdrop-filter:blur(8px);border-radius:8px;box-shadow:0 18px 44px rgba(0,0,0,0.34);overflow:hidden}
-.countdown-panel{display:flex;flex-direction:column;justify-content:center;padding:24px;min-height:320px}
+.countdown-panel,.map-panel{overflow:visible}
+.countdown-panel{display:flex;flex-direction:column;justify-content:center;padding:20px 0;min-height:320px}
 
 .countdown-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media(min-width:560px){.countdown-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
@@ -172,11 +172,21 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .venue-summary strong{font-family:'Libre Baskerville',Georgia,serif;font-size:clamp(16px,4vw,20px);color:var(--cream);line-height:1.45}
 .venue-summary span{font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faf)}
 
-.map-panel{min-height:320px}
-.map-panel iframe{display:block;width:100%;height:100%;min-height:320px}
+.map-panel{min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0 20px}
+.venue-art-link{display:block;width:100%;max-width:430px;text-decoration:none;transition:transform .3s ease,filter .3s ease}
+.venue-art-link:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.venue-art{display:block;width:100%;max-width:430px;aspect-ratio:4/3;object-fit:contain;filter:drop-shadow(0 18px 26px rgba(0,0,0,0.38))}
+.map-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:11px 18px;border:1px solid var(--gold-a4);border-radius:50px;background:rgba(223,177,91,0.08);color:var(--gold);font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.map-link:hover{background:rgba(223,177,91,0.18);border-color:var(--gold);transform:translateY(-1px)}
 
 @media(max-width:420px){
+  .hero-content{padding-left:18px;padding-right:18px}
+  .hero-name{font-size:44px}
   .countdown-panel{padding:18px 14px}
   .countdown-unit{min-height:104px}
   .venue-summary span{letter-spacing:.08em}
+}
+
+@media(max-width:360px){
+  .hero-name{font-size:38px}
 }

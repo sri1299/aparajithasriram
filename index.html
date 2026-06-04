@@ -5,48 +5,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="You are cordially invited to the sacred wedding of Sriram Ganesh & Aparajitha Ramesh. A traditional South Indian celebration of love and family.">
-  <title>Sriram Ganesh & Aparajitha Ramesh Wedding 💍</title>
+    content="You are cordially invited to the wedding of Sriram Ganesh and Aparajitha Ramesh at Theerthamalai Gounder Thirumana Maligai, Salem.">
+  <title>Sriram Ganesh & Aparajitha Ramesh Wedding</title>
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preload" as="image" href="inscription_glow_transition2.gif">
+  <link rel="preload" as="image" href="inscription_glow_transition_last2.png">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-  <!-- Background Music and Audio element -->
   <button id="music-btn" aria-label="Play or mute traditional music" style="display: none;">
     <i data-lucide="volume-x"></i>
   </button>
   <audio id="bg-music" src="song.mp3" loop preload="auto"></audio>
 
-  <!-- Canvas for falling flowers/stars particles -->
   <canvas id="particles-canvas"></canvas>
 
-  <!-- 1. Intro Screen / Wax Seal -->
   <div id="intro-screen">
-    <!-- Gopuram background for mobile and desktop -->
     <picture>
-      <source media="(min-width: 768px)" srcset="gopuram_desktop.png">
-      <img src="gopuram_mobile.png" class="gopuram-bg" alt="Sacred South Indian Temple Gopuram">
+      <source media="(min-width: 768px)" srcset="gopuram2_desktop.png">
+      <img src="gopuram2_mobile.png" class="gopuram-bg" alt="Sacred South Indian Temple Gopuram">
     </picture>
     <div class="intro-content">
       <div class="intro-label">SACRED UNION</div>
-      <h1 class="intro-heading">शुभ विवाह</h1>
-      <div class="intro-seal" id="intro-seal-btn" title="Tap to open the invitation">
-        <span style="font-family: 'Cinzel', serif; font-size: 34px; color: #fbf5df; margin-top: -2px;">ॐ</span>
-      </div>
+      <h1 class="intro-heading tamil-text">சுப விவாகம்</h1>
       <div class="intro-cta">TAP TO OPEN THE INVITATION</div>
     </div>
   </div>
 
-  <!-- Main Website Container (initially hidden, fades in) -->
-  <div id="main-site" class="hidden">
+  <div id="loading-screen" class="hidden" aria-live="polite" aria-label="Opening invitation">
+    <img src="inscription_glow_transition2.gif" alt="" class="loading-gif">
+  </div>
 
-    <!-- 2. Hero Section -->
+  <div id="main-site" class="hidden">
     <section class="hero-section" id="home">
       <picture>
         <source media="(min-width: 768px)" srcset="hero-bg-desktop.png">
-        <img src="hero-bg-mobile.jpg" class="hero-bg" alt="Decorated Temple Bells Background">
+        <img src="hero-bg-mobile.jpg" class="hero-bg" alt="Decorated temple bells background">
       </picture>
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -54,22 +49,20 @@
         <h1 class="hero-name">Sriram Ganesh</h1>
         <div class="hero-amp">&</div>
         <h1 class="hero-name">Aparajitha Ramesh</h1>
-        <p class="hero-quote">“Two hearts, one beautiful journey.”</p>
+        <p class="hero-quote">"Two hearts, one beautiful journey."</p>
 
-        <!-- Ornate Divider -->
         <div class="divider">
           <span class="divider-line"></span>
-          <span class="divider-center">✦</span>
+          <span class="divider-center">*</span>
           <span class="divider-line"></span>
         </div>
 
-        <!-- Save the Date Card -->
         <div class="std-card">
           <div class="std-label">SAVE THE DATE</div>
-          <div class="std-date">22 <span>·</span> August <span>·</span> 2026</div>
+          <div class="std-date">23 <span>*</span> August <span>*</span> 2026</div>
         </div>
 
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sriram Ganesh+%26+Aparajitha Ramesh%27s+Sacred+Muhurtham&dates=20260822T033000Z%2F20260822T183000Z&details=You+are+cordially+invited+to+celebrate+the+sacred+wedding+ceremonies+of+Sriram Ganesh+and+Aparajitha Ramesh.+Join+us+for+Mangala+Muhurtham+followed+by+the+Grand+Rajayogam+Feast.&location=Sri+Rajarajeswari+Kalyana+Mandapam%2C+Mylapore%2C+Chennai&sf=true&output=xml"
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sriram Ganesh+%26+Aparajitha Ramesh%27s+Muhurtham&dates=20260823T043000Z%2F20260823T060000Z&details=You+are+cordially+invited+to+celebrate+the+wedding+of+Sriram Ganesh+and+Aparajitha Ramesh.&location=Theerthamalai+Gounder+Thirumana+Maligai%2C+Karuppur%2C+Salem+-+636+012&sf=true&output=xml"
           target="_blank" rel="noopener noreferrer" class="cal-btn">
           <i data-lucide="calendar" style="width: 14px; height: 14px;"></i>
           ADD TO GOOGLE CALENDAR
@@ -82,359 +75,176 @@
       </div>
     </section>
 
-    <!-- 3. Countdown Section -->
     <section class="countdown-section reveal" id="countdown">
-      <div class="absolute inset-4 sm:inset-6 md:inset-8 border border-[#dfb15b]/15 pointer-events-none z-10"
-        style="position: absolute; border: 1px solid rgba(223, 177, 91, 0.15);"></div>
-      <div
-        class="absolute inset-5 sm:inset-8 md:inset-[38px] border-2 border-double border-[#dfb15b]/10 pointer-events-none z-10"
-        style="position: absolute; border: 2px double rgba(223, 177, 91, 0.1);"></div>
-
-      <div class="section-badge">SHUBHA MUHURTHAM</div>
-      <h2 class="countdown-title">The Auspicious Countdown</h2>
-      <p class="countdown-subtitle">“Under the divine canopy of stars, we count down the moments leading to a beautiful
-        lifetime together.”</p>
+      <div class="section-badge tamil-text">சுபமுகூர்த்தம்</div>
+      <h2 class="countdown-title">Muhurtham Countdown</h2>
+      <p class="countdown-subtitle">
+        Sunday, 23 August 2026, between 10:00 AM and 11:30 AM at Theerthamalai Gounder Thirumana Maligai.
+      </p>
 
       <div class="divider">
         <span class="divider-line"></span>
-        <span class="divider-center">✦</span>
+        <span class="divider-center">*</span>
         <span class="divider-line"></span>
       </div>
 
-      <div class="scratch-hint">
-        <i data-lucide="sparkles" style="width: 12px; height: 12px; color: var(--gold); margin-right: 4px;"></i>
-        Gently scratch the golden seals to reveal the time
-      </div>
-
-      <div class="scratch-grid">
-        <!-- DAYS -->
-        <div class="scratch-unit">
-          <div class="scratch-circle-wrap" id="scratch-wrap-days">
-            <div class="scratch-circle-inner">
-              <div class="scratch-value" id="days-val">00</div>
-              <div class="scratch-label-text">DAYS</div>
-              <canvas class="scratch-canvas" id="canvas-days"></canvas>
+      <div class="countdown-location-grid">
+        <div class="countdown-panel" aria-label="Countdown to the wedding muhurtham">
+          <div class="countdown-grid">
+            <div class="countdown-unit">
+              <div class="countdown-value" id="days-val">00</div>
+              <div class="countdown-label-text">Days</div>
             </div>
+            <div class="countdown-unit">
+              <div class="countdown-value" id="hours-val">00</div>
+              <div class="countdown-label-text">Hours</div>
+            </div>
+            <div class="countdown-unit">
+              <div class="countdown-value" id="minutes-val">00</div>
+              <div class="countdown-label-text">Minutes</div>
+            </div>
+            <div class="countdown-unit">
+              <div class="countdown-value" id="seconds-val">00</div>
+              <div class="countdown-label-text">Seconds</div>
+            </div>
+          </div>
+          <div class="venue-summary">
+            <strong>Theerthamalai Gounder Thirumana Maligai</strong>
+            <span>Karuppur, Salem - 636 012</span>
           </div>
         </div>
-        <!-- HOURS -->
-        <div class="scratch-unit">
-          <div class="scratch-circle-wrap" id="scratch-wrap-hours">
-            <div class="scratch-circle-inner">
-              <div class="scratch-value" id="hours-val">00</div>
-              <div class="scratch-label-text">HOURS</div>
-              <canvas class="scratch-canvas" id="canvas-hours"></canvas>
-            </div>
-          </div>
-        </div>
-        <!-- MINUTES -->
-        <div class="scratch-unit">
-          <div class="scratch-circle-wrap" id="scratch-wrap-minutes">
-            <div class="scratch-circle-inner">
-              <div class="scratch-value" id="minutes-val">00</div>
-              <div class="scratch-label-text">MINUTES</div>
-              <canvas class="scratch-canvas" id="canvas-minutes"></canvas>
-            </div>
-          </div>
-        </div>
-        <!-- SECONDS -->
-        <div class="scratch-unit">
-          <div class="scratch-circle-wrap" id="scratch-wrap-seconds">
-            <div class="scratch-circle-inner">
-              <div class="scratch-value" id="seconds-val">00</div>
-              <div class="scratch-label-text">SECONDS</div>
-              <canvas class="scratch-canvas" id="canvas-seconds"></canvas>
-            </div>
-          </div>
+        <div class="map-panel" aria-label="Wedding venue directions">
+          <a class="venue-art-link"
+            href="https://www.google.com/maps/search/?api=1&query=Theerthamalai%20Gounder%20Thirumana%20Maligai%2C%20Karuppur%2C%20Salem%20636%20012"
+            target="_blank" rel="noopener noreferrer" aria-label="How to reach the wedding venue?">
+            <img src="chariot.png" class="venue-art" alt="Wedding chariot illustration">
+          </a>
+          <a class="map-link"
+            href="https://www.google.com/maps/search/?api=1&query=Theerthamalai%20Gounder%20Thirumana%20Maligai%2C%20Karuppur%2C%20Salem%20636%20012"
+            target="_blank" rel="noopener noreferrer">
+            <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i>
+            HOW TO REACH?
+          </a>
         </div>
       </div>
-
-      <button class="reveal-all-btn" id="reveal-all-btn">Reveal All</button>
     </section>
 
-    <!-- 4. Parents Section -->
     <section class="parents-section reveal" id="parents">
-      <div class="section-badge">With the Blessings of</div>
+      <div class="section-badge">Families Invite You</div>
 
       <div class="parents-grid">
         <div class="parent-card">
-          <div class="parent-badge">Parents of the Groom</div>
+          <div class="parent-badge">Bride's Family</div>
           <div class="parent-divider"></div>
-          <p class="parent-desc">Tracing ancestral roots from Tanjavur, seeking to unite two grand families with ancient
-            traditional virtues.</p>
+          <p class="parent-desc">Smt. Aralakesi Ramesh and Sri B. Ramesh, Salem.</p>
         </div>
         <div class="parent-card">
-          <div class="parent-badge">Parents of the Bride</div>
+          <div class="parent-badge">Groom's Family</div>
           <div class="parent-divider"></div>
-          <p class="parent-desc">Tracing ancestral roots from Madurai, offering their cherished daughter under pure love
-            and divine warmth.</p>
+          <p class="parent-desc">Smt. Lakshmi C.M. and Sri Ganesh Srinivasan, Chennai.</p>
         </div>
       </div>
 
       <div class="parents-request">
         <div class="parent-divider" style="width: 80px; margin: 32px auto 24px;"></div>
         <p class="request-text">
-          cordially request the honour of your esteemed presence to celebrate the auspicious wedding of their beloved
-          children
+          We cordially invite you and request the pleasure of your company with family and friends on the auspicious
+          occasion of the marriage of
         </p>
         <h3 class="intro-heading" style="font-size: clamp(24px, 6vw, 36px); margin-top: 24px;">Sriram Ganesh</h3>
         <div style="font-size: 14px; color: var(--gold); margin: 6px auto;">&</div>
         <h3 class="intro-heading" style="font-size: clamp(24px, 6vw, 36px); margin-bottom: 24px;">Aparajitha Ramesh</h3>
         <div class="ceremony-venue-addr"
           style="letter-spacing: 0.15em; font-family: 'Raleway', sans-serif; text-transform: uppercase;">
-          Mylapore, Chennai • Friday & Saturday
+          Sunday, 23 August 2026 * Theerthamalai Gounder Thirumana Maligai, Karuppur, Salem - 636 012
         </div>
       </div>
     </section>
 
-    <!-- 5. Ceremonies Section -->
     <section class="ceremonies-section reveal" id="schedule">
       <div class="section-badge">AUSPICIOUS SCHEDULE</div>
-      <h2 class="ceremonies-section-title">WEDDING CEREMONIES</h2>
+      <h2 class="ceremonies-section-title">PROGRAMME</h2>
 
       <div class="divider">
         <span class="divider-line"></span>
-        <span class="divider-center">✦</span>
+        <span class="divider-center">*</span>
         <span class="divider-line"></span>
       </div>
 
       <div class="ceremonies-list">
-        <!-- Card 1 -->
         <div class="ceremony-item">
           <div class="ceremony-dot"></div>
-          <span class="ceremony-num">CEREMONY · 01</span>
-          <h3 class="ceremony-title">Mappillai Azhaippu & Welcome</h3>
-          <p class="ceremony-subtitle">“Welcoming the groom with royal traditional honours and celebration.”</p>
+          <span class="ceremony-symbol" aria-label="Reception">
+            <i data-lucide="party-popper"></i>
+          </span>
+          <h3 class="ceremony-title">Reception</h3>
+          <p class="ceremony-subtitle">Reception and family welcome.</p>
           <div class="ceremony-meta">
             <div class="ceremony-date">
               <i data-lucide="calendar" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              Friday, 11 December 2026
+              Saturday, 22 August 2026
             </div>
             <div class="ceremony-time">
               <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              6:00 PM onwards
+              6:30 PM onwards
             </div>
-            <div class="ceremony-venue">
-              <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              <span class="ceremony-venue-name">Sri Rajarajeswari Kalyana Mandapam</span>
-            </div>
-            <span class="ceremony-venue-addr">Dr. Radhakrishnan Salai, Mylapore, Chennai, Tamil Nadu 600004</span>
           </div>
-          <p class="ceremony-desc">An evening of festive music, classical dance, and royal South Indian delicacies as
-            the families unite and welcome the groom.</p>
-          <a href="https://maps.google.com/?q=Sri+Rajarajeswari+Kalyana+Mandapam+Mylapore+Chennai" target="_blank"
-            rel="noopener noreferrer" class="map-btn">
-            <i data-lucide="external-link" style="width: 12px; height: 12px;"></i>
-            Google Map Location
-          </a>
+          <p class="ceremony-desc">We invite you to gather for the reception and begin the celebration together.</p>
         </div>
 
         <div class="ceremony-sep"></div>
 
-        <!-- Card 2 -->
         <div class="ceremony-item">
           <div class="ceremony-dot"></div>
-          <span class="ceremony-num">CEREMONY · 02</span>
-          <h3 class="ceremony-title">Kasi Yatra & Vratham</h3>
-          <p class="ceremony-subtitle">“The sacred journey of asceticism, and the sweet return to family life.”</p>
+          <span class="ceremony-symbol" aria-label="Kasiyatrai">
+            <i data-lucide="footprints"></i>
+          </span>
+          <h3 class="ceremony-title">Kasiyatrai</h3>
+          <p class="ceremony-subtitle">The groom's symbolic journey and joyful return to family life.</p>
           <div class="ceremony-meta">
             <div class="ceremony-date">
               <i data-lucide="calendar" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              Saturday, 12 December 2026
-            </div>
-            <div class="ceremony-time">
-              <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              6:30 AM
-            </div>
-            <div class="ceremony-venue">
-              <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              <span class="ceremony-venue-name">Sri Rajarajeswari Kalyana Mandapam</span>
-            </div>
-            <span class="ceremony-venue-addr">Dr. Radhakrishnan Salai, Mylapore, Chennai, Tamil Nadu 600004</span>
-          </div>
-          <p class="ceremony-desc">The groom embarks on a symbolic journey to Kasi, only to be stopped by the bride’s
-            father, who offers his daughter’s hand in holy matrimony.</p>
-          <a href="https://maps.google.com/?q=Sri+Rajarajeswari+Kalyana+Mandapam+Mylapore+Chennai" target="_blank"
-            rel="noopener noreferrer" class="map-btn">
-            <i data-lucide="external-link" style="width: 12px; height: 12px;"></i>
-            Google Map Location
-          </a>
-        </div>
-
-        <div class="ceremony-sep"></div>
-
-        <!-- Card 3 -->
-        <div class="ceremony-item">
-          <div class="ceremony-dot"></div>
-          <span class="ceremony-num">CEREMONY · 03</span>
-          <h3 class="ceremony-title">Unjal (The Swing Ceremony)</h3>
-          <p class="ceremony-subtitle">“Swaying to traditional songs while warding off evil spirits.”</p>
-          <div class="ceremony-meta">
-            <div class="ceremony-date">
-              <i data-lucide="calendar" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              Saturday, 12 December 2026
+              Sunday, 23 August 2026
             </div>
             <div class="ceremony-time">
               <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--gold);"></i>
               8:00 AM
             </div>
-            <div class="ceremony-venue">
-              <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              <span class="ceremony-venue-name">Grand Courtyard Hall</span>
-            </div>
-            <span class="ceremony-venue-addr">Sri Rajarajeswari Kalyana Mandapam, Mylapore, Chennai</span>
           </div>
-          <p class="ceremony-desc">The couple sits on a beautifully decorated wooden swing (Unjal), fed milk and bananas
-            by the elders, while women sing traditional wedding ragas.</p>
-          <a href="https://maps.google.com/?q=Sri+Rajarajeswari+Kalyana+Mandapam+Mylapore+Chennai" target="_blank"
-            rel="noopener noreferrer" class="map-btn">
-            <i data-lucide="external-link" style="width: 12px; height: 12px;"></i>
-            Google Map Location
-          </a>
+          <p class="ceremony-desc">A cherished ritual where the groom is lovingly guided toward the marriage ceremony.</p>
         </div>
 
         <div class="ceremony-sep"></div>
 
-        <!-- Card 4 -->
         <div class="ceremony-item">
           <div class="ceremony-dot"></div>
-          <span class="ceremony-num">CEREMONY · 04</span>
-          <h3 class="ceremony-title">Mangala Muhurtham</h3>
-          <p class="ceremony-subtitle">“The divine binding knot of three rounds under sacred chants.”</p>
+          <span class="ceremony-symbol" aria-label="Muhurtham">
+            <i data-lucide="infinity"></i>
+          </span>
+          <h3 class="ceremony-title">Muhurtham</h3>
+          <p class="ceremony-subtitle">The auspicious marriage ceremony and Mangalya Dharanam.</p>
           <div class="ceremony-meta">
             <div class="ceremony-date">
               <i data-lucide="calendar" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              Saturday, 12 December 2026
+              Sunday, 23 August 2026
             </div>
             <div class="ceremony-time">
               <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              9:00 AM - 10:30 AM
+              10:00 AM - 11:30 AM
             </div>
-            <div class="ceremony-venue">
-              <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              <span class="ceremony-venue-name">Main Mandapam Hall</span>
-            </div>
-            <span class="ceremony-venue-addr">Sri Rajarajeswari Kalyana Mandapam, Mylapore, Chennai</span>
           </div>
-          <p class="ceremony-desc">The auspicious moment where the Thali (Mangalsutra) is tied around the bride’s neck
-            under the resonant beats of Nadaswaram, followed by Sapthapadi.</p>
-          <a href="https://maps.google.com/?q=Sri+Rajarajeswari+Kalyana+Mandapam+Mylapore+Chennai" target="_blank"
-            rel="noopener noreferrer" class="map-btn">
-            <i data-lucide="external-link" style="width: 12px; height: 12px;"></i>
-            Google Map Location
-          </a>
-        </div>
-
-        <div class="ceremony-sep"></div>
-
-        <!-- Card 5 -->
-        <div class="ceremony-item">
-          <div class="ceremony-dot"></div>
-          <span class="ceremony-num">CEREMONY · 05</span>
-          <h3 class="ceremony-title">Grand Rajayogam Feast</h3>
-          <p class="ceremony-subtitle">“A celebratory traditional wedding luncheon served on fresh plantain leaves.”</p>
-          <div class="ceremony-meta">
-            <div class="ceremony-date">
-              <i data-lucide="calendar" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              Saturday, 12 December 2026
-            </div>
-            <div class="ceremony-time">
-              <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              12:00 PM onwards
-            </div>
-            <div class="ceremony-venue">
-              <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--gold);"></i>
-              <span class="ceremony-venue-name">The Royal Banquet Pavilion</span>
-            </div>
-            <span class="ceremony-venue-addr">Sri Rajarajeswari Kalyana Mandapam, Mylapore, Chennai</span>
-          </div>
-          <p class="ceremony-desc">Celebrate our first union as husband and wife with a grand traditional South Indian
-            feast prepared by royal temple chefs.</p>
-          <a href="https://maps.google.com/?q=Sri+Rajarajeswari+Kalyana+Mandapam+Mylapore+Chennai" target="_blank"
-            rel="noopener noreferrer" class="map-btn">
-            <i data-lucide="external-link" style="width: 12px; height: 12px;"></i>
-            Google Map Location
-          </a>
+          <p class="ceremony-desc">Please grace the sacred moment and bless the couple as they begin their life together.</p>
         </div>
       </div>
     </section>
 
-    <!-- 6. RSVP / Blessing Wall Section -->
-    <section class="rsvp-section reveal" id="rsvp">
-      <h2 class="rsvp-section-title">Share Your Blessings</h2>
-      <p class="rsvp-subtitle">Please let us know if you will grace the occasion with your presence and blessings.</p>
-
-      <form class="rsvp-form" id="rsvp-form">
-        <!-- Name -->
-        <div class="form-group">
-          <label class="form-label" for="guestName">Your Name</label>
-          <input type="text" id="guestName" class="form-input" placeholder="e.g. Anandha Krishnan" required>
-        </div>
-
-        <!-- Guest Count -->
-        <div class="form-group">
-          <label class="form-label" for="guestCount">Number of Guests</label>
-          <select id="guestCount" class="form-select">
-            <option value="1">1 Person</option>
-            <option value="2" selected>2 Persons</option>
-            <option value="3">3 Persons</option>
-            <option value="4">4 Persons</option>
-            <option value="5">5 Persons</option>
-            <option value="6">6+ Persons</option>
-          </select>
-        </div>
-
-        <!-- Attending -->
-        <div class="form-group">
-          <label class="form-label">Will you be attending?</label>
-          <div class="radio-group" id="attending-group">
-            <div class="radio-btn active" data-value="yes">Yes</div>
-            <div class="radio-btn" data-value="maybe">Maybe</div>
-            <div class="radio-btn" data-value="no">No</div>
-          </div>
-        </div>
-
-        <!-- Side -->
-        <div class="form-group">
-          <label class="form-label">Whose guests are you?</label>
-          <div class="radio-group" id="side-group">
-            <div class="radio-btn active" data-value="groom">Groom's Side</div>
-            <div class="radio-btn" data-value="bride">Bride's Side</div>
-            <div class="radio-btn" data-value="general">Both / General</div>
-          </div>
-        </div>
-
-        <!-- Message -->
-        <div class="form-group">
-          <label class="form-label" for="message">Blessings & Message</label>
-          <textarea id="message" class="form-textarea"
-            placeholder="Send your warm wishes and blessings to the bride & groom..." required></textarea>
-        </div>
-
-        <!-- Submit Button -->
-        <button type="submit" class="submit-btn" id="submit-btn">Send Blessings</button>
-        <div class="submit-success" id="submit-success">Thank you for your blessings! 🌸</div>
-      </form>
-
-      <!-- Blessing Wall -->
-      <div class="blessing-wall">
-        <h3 class="blessing-wall-title">Blessings Wall</h3>
-        <div class="blessing-cards" id="blessing-cards-container">
-          <!-- Dynamically populated via JavaScript -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Footer -->
     <footer class="footer">
-      <div class="footer-mantra">Loka Samastha Sukhino Bhavantu</div>
+      <div class="footer-mantra tamil-text">ஸ்ரீ ராமஜயம்</div>
       <p class="footer-thanks">Thank you for being a part of our sacred union.</p>
-      <div class="footer-made">Made with Love for Sriram Ganesh & Aparajitha Ramesh 💍</div>
+      <div class="footer-made">Sent with ❤️ for Sriram Ganesh & Aparajitha Ramesh</div>
     </footer>
-
   </div>
 
-  <!-- CDN script for Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="script.js"></script>
 </body>

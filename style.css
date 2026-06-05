@@ -60,11 +60,12 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 /* ---- Main Site ---- */
 #main-site{position:relative;z-index:10;background:transparent}
 #main-site.hidden{display:none}
-#main-site::before{content:'';position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(18,7,4,0.62),rgba(28,10,4,0.68)),url('inscription_glow_transition_last2.png') center/cover no-repeat;pointer-events:none}
-#main-site::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(255,210,118,0.1),rgba(255,210,118,0.035) 34%,rgba(255,210,118,0.035) 66%,rgba(255,210,118,0.1)) left top/26px 100% no-repeat,linear-gradient(to bottom,rgba(255,210,118,0.1),rgba(255,210,118,0.035) 34%,rgba(255,210,118,0.035) 66%,rgba(255,210,118,0.1)) right top/26px 100% no-repeat,radial-gradient(circle at 0 0,rgba(255,218,135,0.16),rgba(255,218,135,0) 48%) top left/42% 28% no-repeat,radial-gradient(circle at 100% 0,rgba(255,218,135,0.14),rgba(255,218,135,0) 48%) top right/42% 28% no-repeat,radial-gradient(circle at 0 100%,rgba(255,198,91,0.12),rgba(255,198,91,0) 48%) bottom left/36% 24% no-repeat,radial-gradient(circle at 100% 100%,rgba(255,198,91,0.12),rgba(255,198,91,0) 48%) bottom right/36% 24% no-repeat}
+#main-site::before{content:'';position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(10,3,1,0.76),rgba(18,6,2,0.82)),url('inscription_glow_transition_last2.png') center/cover no-repeat;pointer-events:none}
+#main-site::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity 0.8s ease-in-out;background:linear-gradient(to right, rgba(255, 210, 118, 0.14), rgba(255,210,118,0)) left top/60px 100% no-repeat,linear-gradient(to left, rgba(255, 210, 118, 0.14), rgba(255,210,118,0)) right top/60px 100% no-repeat,radial-gradient(circle at 0 0,rgba(255,218,135,0.11) 0%,rgba(255,218,135,0) 32%),radial-gradient(circle at 100% 0,rgba(255,218,135,0.11) 0%,rgba(255,218,135,0) 32%),radial-gradient(circle at 0 100%,rgba(255,198,91,0.08) 0%,rgba(255,198,91,0) 32%),radial-gradient(circle at 100% 100%,rgba(255,198,91,0.08) 0%,rgba(255,198,91,0) 32%)}
+#main-site.show-side-glow::after{opacity:1}
 
 /* ---- Hero Section ---- */
-.hero-section{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(to bottom,rgba(12,4,2,0.28),rgba(42,16,6,0.62)),url('inscription_glow_transition_last2.png') center/cover no-repeat}
+.hero-section{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(to bottom,rgba(8,2,1,0.48),rgba(26,9,3,0.78)),url('inscription_glow_transition_last2.png') center/cover no-repeat}
 .hero-bg{display:none}
 .hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 50% 34%,rgba(128,70,34,0.18) 0%,rgba(28,10,4,0.38) 48%,rgba(38,14,5,0.68) 100%)}
 .hero-content{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;padding:80px 24px 40px;width:100%;max-width:760px;margin:0 auto}
@@ -94,8 +95,8 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .divider-center{font-size:12px;opacity:.8}
 
 /* ---- Countdown Section ---- */
-.countdown-section{position:relative;background:linear-gradient(135deg,rgba(28,10,4,0.9) 0%,rgba(58,24,9,0.82) 50%,rgba(32,11,4,0.88) 100%);padding:64px 20px;text-align:center;overflow:hidden}
-.countdown-section::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(18,7,4,0.52),rgba(40,14,5,0.58)),url('inscription_glow_transition_last2.png') center/cover no-repeat;opacity:.26}
+.countdown-section{position:relative;background:linear-gradient(135deg,rgba(18,6,2,0.95) 0%,rgba(44,17,6,0.88) 50%,rgba(22,7,2,0.95) 100%);padding:64px 20px;text-align:center;overflow:hidden}
+.countdown-section::before{content:'';position:absolute;inset:0;background:linear-gradient(rgba(10,3,1,0.72),rgba(28,10,3,0.78)),url('inscription_glow_transition_last2.png') center/cover no-repeat;opacity:.26}
 .section-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
 .section-badge::before,.section-badge::after{content:'';display:block;width:32px;height:1px;background:linear-gradient(to right,transparent,var(--gold-a4))}
 .section-badge::after{background:linear-gradient(to left,transparent,var(--gold-a4))}
@@ -103,7 +104,7 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .countdown-subtitle{font-family:'EB Garamond',serif;font-size:clamp(14px,4vw,18px);font-style:italic;color:var(--faf);max-width:400px;margin:0 auto 28px;line-height:1.6;padding:0 16px}
 
 /* ---- Parents Section ---- */
-.parents-section{position:relative;background:linear-gradient(to bottom,rgba(28,10,4,0.9),rgba(25,8,3,0.9));padding:64px 24px;text-align:center;overflow:hidden}
+.parents-section{position:relative;background:linear-gradient(to bottom,rgba(18,6,2,0.95),rgba(15,5,1,0.96));padding:64px 24px;text-align:center;overflow:hidden}
 .parents-section::before{content:'';position:absolute;inset:8px;border:1px solid var(--gold-a1);pointer-events:none}
 .parents-section::after{content:'';position:absolute;inset:12px;border:1px solid var(--gold-a1);border-style:dashed;pointer-events:none}
 .parents-grid{display:grid;grid-template-columns:1fr;gap:40px;max-width:760px;margin:32px auto 0;padding:0 8px}
@@ -119,7 +120,7 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .request-text em{color:var(--gold);font-style:normal;font-weight:500}
 
 /* ---- Ceremonies Section ---- */
-.ceremonies-section{background:linear-gradient(to bottom,rgba(24,8,3,0.92),rgba(18,6,2,0.94));padding:64px 24px;text-align:center}
+.ceremonies-section{background:linear-gradient(to bottom,rgba(14,4,1,0.96),rgba(10,3,1,0.97));padding:64px 24px;text-align:center}
 .ceremonies-section-title{font-family:'Cinzel',Georgia,serif;font-size:clamp(24px,7vw,44px);color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
 .ceremonies-list{max-width:540px;margin:40px auto 0;display:flex;flex-direction:column;gap:0;position:relative}
 .ceremonies-list::before{content:none}
@@ -183,7 +184,7 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .map-link:hover{background:rgba(223,177,91,0.18);border-color:var(--gold);transform:translateY(-1px)}
 
 @media(max-width:420px){
-  #main-site::after{background:linear-gradient(to bottom,rgba(255,210,118,0.12),rgba(255,210,118,0.04) 34%,rgba(255,210,118,0.04) 66%,rgba(255,210,118,0.12)) left top/20px 100% no-repeat,linear-gradient(to bottom,rgba(255,210,118,0.12),rgba(255,210,118,0.04) 34%,rgba(255,210,118,0.04) 66%,rgba(255,210,118,0.12)) right top/20px 100% no-repeat,radial-gradient(circle at 0 0,rgba(255,218,135,0.15),rgba(255,218,135,0) 50%) top left/54% 28% no-repeat,radial-gradient(circle at 100% 0,rgba(255,218,135,0.13),rgba(255,218,135,0) 50%) top right/54% 28% no-repeat,radial-gradient(circle at 0 100%,rgba(255,198,91,0.11),rgba(255,198,91,0) 50%) bottom left/48% 24% no-repeat,radial-gradient(circle at 100% 100%,rgba(255,198,91,0.11),rgba(255,198,91,0) 50%) bottom right/48% 24% no-repeat}
+  #main-site::after{background:linear-gradient(to right, rgba(255, 210, 118, 0.12), rgba(255,210,118,0)) left top/24px 100% no-repeat,linear-gradient(to left, rgba(255, 210, 118, 0.12), rgba(255,210,118,0)) right top/24px 100% no-repeat,radial-gradient(circle at 0 0,rgba(255,218,135,0.09) 0%,rgba(255,218,135,0) 32%),radial-gradient(circle at 100% 0,rgba(255,218,135,0.09) 0%,rgba(255,218,135,0) 32%),radial-gradient(circle at 0 100%,rgba(255,198,91,0.06) 0%,rgba(255,198,91,0) 32%),radial-gradient(circle at 100% 100%,rgba(255,198,91,0.06) 0%,rgba(255,198,91,0) 32%)}
   .hero-content{padding-left:18px;padding-right:18px}
   .hero-name{font-size:44px}
   .countdown-panel{padding:18px 14px}

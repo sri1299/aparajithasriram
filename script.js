@@ -229,7 +229,43 @@ function initScrollReveal() {
   revealElements.forEach(el => observer.observe(el));
 }
 
+function initSideGlowObserver() {
+  const scheduleSection = document.getElementById("schedule");
+  const footerElement = document.querySelector(".footer");
+  const mainSite = document.getElementById("main-site");
+  if (!mainSite) return;
+
+  let isScheduleVisible = false;
+  let isFooterVisible = false;
+
+  const updateGlow = () => {
+    if (isScheduleVisible || isFooterVisible) {
+      mainSite.classList.add("show-side-glow");
+    } else {
+      mainSite.classList.remove("show-side-glow");
+    }
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.target === scheduleSection) {
+        isScheduleVisible = entry.isIntersecting;
+      } else if (entry.target === footerElement) {
+        isFooterVisible = entry.isIntersecting;
+      }
+    });
+    updateGlow();
+  }, {
+    root: null,
+    threshold: 0.05
+  });
+
+  if (scheduleSection) observer.observe(scheduleSection);
+  if (footerElement) observer.observe(footerElement);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
+  initSideGlowObserver();
   renderIcons();
 });

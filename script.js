@@ -184,7 +184,9 @@ function animateParticles() {
 
 requestAnimationFrame(animateParticles);
 
-const TARGET_WEDDING_TIME = new Date("2026-08-23T10:00:00+05:30").getTime();
+const TARGET_WEDDING_TIME = new Date(
+  document.body.dataset.countdownTarget || "2026-08-23T10:00:00+05:30"
+).getTime();
 const daysVal = document.getElementById("days-val");
 const hoursVal = document.getElementById("hours-val");
 const minutesVal = document.getElementById("minutes-val");

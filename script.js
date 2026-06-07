@@ -184,7 +184,9 @@ function animateParticles() {
 
 requestAnimationFrame(animateParticles);
 
-const TARGET_WEDDING_TIME = new Date("2026-08-23T10:00:00+05:30").getTime();
+const TARGET_WEDDING_TIME = new Date(
+  document.body.dataset.countdownTarget || "2026-08-23T10:00:00+05:30"
+).getTime();
 const daysVal = document.getElementById("days-val");
 const hoursVal = document.getElementById("hours-val");
 const minutesVal = document.getElementById("minutes-val");
@@ -227,7 +229,43 @@ function initScrollReveal() {
   revealElements.forEach(el => observer.observe(el));
 }
 
+function initSideGlowObserver() {
+  const scheduleSection = document.getElementById("schedule");
+  const footerElement = document.querySelector(".footer");
+  const mainSite = document.getElementById("main-site");
+  if (!mainSite) return;
+
+  let isScheduleVisible = false;
+  let isFooterVisible = false;
+
+  const updateGlow = () => {
+    if (isScheduleVisible || isFooterVisible) {
+      mainSite.classList.add("show-side-glow");
+    } else {
+      mainSite.classList.remove("show-side-glow");
+    }
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.target === scheduleSection) {
+        isScheduleVisible = entry.isIntersecting;
+      } else if (entry.target === footerElement) {
+        isFooterVisible = entry.isIntersecting;
+      }
+    });
+    updateGlow();
+  }, {
+    root: null,
+    threshold: 0.05
+  });
+
+  if (scheduleSection) observer.observe(scheduleSection);
+  if (footerElement) observer.observe(footerElement);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
+  initSideGlowObserver();
   renderIcons();
 });

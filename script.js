@@ -272,8 +272,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const rsvpForm = document.getElementById("rsvp-form");
 const rsvpStatus = document.getElementById("rsvp-status");
+const guestCountField = document.getElementById("guest-count-field");
+const guestCount = document.getElementById("guest-count");
+
+function updateGuestCountVisibility() {
+  if (!rsvpForm || !guestCountField || !guestCount) return;
+  const attendance = rsvpForm.querySelector("input[name='attendance']:checked")?.value;
+  const isAttending = attendance === "Joyfully accepts";
+  guestCountField.hidden = attendance === "Regretfully declines";
+  guestCount.required = isAttending;
+
+  if (!isAttending) {
+    guestCount.value = "";
+  }
+}
 
 if (rsvpForm && rsvpStatus) {
+  rsvpForm.addEventListener("change", updateGuestCountVisibility);
   rsvpForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     rsvpStatus.className = "rsvp-status";
@@ -310,6 +325,7 @@ if (rsvpForm && rsvpStatus) {
         body: JSON.stringify(payload)
       });
       rsvpForm.reset();
+      updateGuestCountVisibility();
       rsvpStatus.textContent = "Thank you — your RSVP has been received.";
       rsvpStatus.classList.add("success");
     } catch (error) {

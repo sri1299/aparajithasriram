@@ -246,6 +246,48 @@
       </div>
     </section>
 
+    <section class="rsvp-section reveal" id="rsvp" aria-labelledby="rsvp-title">
+      <div class="section-badge">Celebrate With Us</div>
+      <h2 class="rsvp-title" id="rsvp-title">Will you join us?</h2>
+      <p class="rsvp-intro">Kindly let us know by 10 August 2026. We would be delighted to celebrate with you.</p>
+
+      <!-- Replace the empty value with your deployed Google Apps Script web app URL. -->
+      <form id="rsvp-form" class="rsvp-form" data-sheet-endpoint="https://script.google.com/macros/s/AKfycbw5mn4FPPAiBy7cQqml5CTDWl4USiN89FcLTih8NAmZxzN33CfL02mFgiMO5gb-WMq8Cw/exec" novalidate>
+        <div class="rsvp-field rsvp-field-full">
+          <label for="guest-name">Your name <span aria-hidden="true">*</span></label>
+          <input id="guest-name" name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Enter your name">
+        </div>
+        <div class="rsvp-field">
+          <label for="guest-phone">Mobile number <em>(optional)</em></label>
+          <input id="guest-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="Your mobile number">
+        </div>
+        <div class="rsvp-field">
+          <label for="guest-count">Number attending <span aria-hidden="true">*</span></label>
+          <select id="guest-count" name="guests" required>
+            <option value="" selected disabled>Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5+">5+</option>
+          </select>
+        </div>
+        <fieldset class="rsvp-field rsvp-field-full attendance-field">
+          <legend>Will you be attending? <span aria-hidden="true">*</span></legend>
+          <div class="attendance-options">
+            <label class="attendance-option"><input type="radio" name="attendance" value="Joyfully accepts" required><span>Joyfully accepts</span></label>
+            <label class="attendance-option"><input type="radio" name="attendance" value="Regretfully declines" required><span>Regretfully declines</span></label>
+          </div>
+        </fieldset>
+        <div class="rsvp-field rsvp-field-full">
+          <label for="guest-message">A note for the couple <em>(optional)</em></label>
+          <textarea id="guest-message" name="message" rows="3" maxlength="500" placeholder="Share your wishes"></textarea>
+        </div>
+        <button class="rsvp-submit" type="submit"><span>Send RSVP</span><i data-lucide="send" aria-hidden="true"></i></button>
+        <p class="rsvp-status" id="rsvp-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
     <footer class="footer">
       <div class="footer-mantra tamil-text">ஸ்ரீ ராமஜெயம்</div>
       <p class="footer-thanks">Thank you for being a part of our sacred union.</p>

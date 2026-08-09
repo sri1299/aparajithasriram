@@ -269,3 +269,57 @@ document.addEventListener("DOMContentLoaded", () => {
   initSideGlowObserver();
   renderIcons();
 });
+
+const rsvpForm = document.getElementById("rsvp-form");
+const rsvpStatus = document.getElementById("rsvp-status");
+
+if (rsvpForm && rsvpStatus) {
+  rsvpForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    rsvpStatus.className = "rsvp-status";
+
+    if (!rsvpForm.checkValidity()) {
+      rsvpForm.reportValidity();
+      return;
+    }
+
+    const endpoint = (
+      rsvpForm.dataset.sheetEndpoint || rsvpForm.getAttribute("action") || rsvpForm.getAttribute("href") || ""
+    ).trim();
+    if (!endpoint) {
+      rsvpStatus.textContent = "RSVP collection is being set up. Please check back shortly.";
+      rsvpStatus.classList.add("error");
+      return;
+    }
+
+    const submitButton = rsvpForm.querySelector("button[type='submit']");
+    const originalLabel = submitButton.innerHTML;
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending…";
+    rsvpStatus.textContent = "";
+
+    const payload = Object.fromEntries(new FormData(rsvpForm).entries());
+    payload.submittedAt = new Date().toISOString();
+
+    try {
+      // Apps Script redirects cross-origin POSTs; no-cors safely delivers the form data.
+      await fetch(endpoint, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+      rsvpForm.reset();
+      rsvpStatus.textContent = "Thank you — your RSVP has been received.";
+      rsvpStatus.classList.add("success");
+    } catch (error) {
+      console.error("RSVP submission failed:", error);
+      rsvpStatus.textContent = "We couldn't send that just now. Please try again.";
+      rsvpStatus.classList.add("error");
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalLabel;
+      renderIcons();
+    }
+  });
+}

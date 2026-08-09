@@ -139,6 +139,28 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .ceremony-desc{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--faf4);line-height:1.6;max-width:360px;margin:10px auto}
 .ceremony-sep{width:46px;height:1px;background:rgba(223,177,91,0.14);margin:0 auto}
 
+/* ---- RSVP Section ---- */
+.rsvp-section{position:relative;padding:72px 24px;background:radial-gradient(ellipse at 50% 0%,rgba(130,57,17,.28),transparent 56%),linear-gradient(150deg,rgba(28,9,3,.98),rgba(11,3,1,.99));text-align:center;overflow:hidden}
+.rsvp-section::before{content:'';position:absolute;inset:10px;border:1px solid var(--gold-a1);pointer-events:none}
+.rsvp-title{font-family:'Dancing Script','Great Vibes',cursive;font-size:clamp(40px,11vw,65px);font-weight:500;color:var(--gold);line-height:1.1;text-shadow:0 0 30px rgba(223,177,91,.25)}
+.rsvp-intro{max-width:440px;margin:16px auto 32px;font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.4vw,19px);line-height:1.55;color:var(--faf)}
+.rsvp-form{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:18px;max-width:590px;margin:0 auto;text-align:left}
+.rsvp-field{display:flex;flex-direction:column;gap:8px}
+.rsvp-field label,.attendance-field legend{font-family:'Raleway',sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.rsvp-field label span,.attendance-field legend span{color:#f3bd7b}.rsvp-field label em{font-style:normal;opacity:.7}
+.rsvp-field input,.rsvp-field select,.rsvp-field textarea{width:100%;border:1px solid rgba(223,177,91,.35);border-radius:3px;background:rgba(7,2,1,.55);padding:13px 14px;color:var(--cream);font:500 16px 'Cormorant Garamond',serif;outline:none;transition:border-color .2s,box-shadow .2s;appearance:none}
+.rsvp-field select{background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.rsvp-field input::placeholder,.rsvp-field textarea::placeholder{color:rgba(250,244,227,.45)}
+.rsvp-field input:focus,.rsvp-field select:focus,.rsvp-field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(223,177,91,.12)}
+.attendance-field{border:0;padding:0;margin:0}.attendance-options{display:grid;grid-template-columns:1fr;gap:10px}
+.attendance-option{display:flex!important;align-items:center;gap:10px;border:1px solid rgba(223,177,91,.26);border-radius:3px;padding:12px 14px;color:var(--faf)!important;font:500 16px 'Cormorant Garamond',serif!important;letter-spacing:0!important;text-transform:none!important;cursor:pointer;transition:background .2s,border-color .2s}
+.attendance-option:has(input:checked){border-color:var(--gold);background:rgba(223,177,91,.1)}
+.attendance-option input{appearance:auto;width:15px;height:15px;accent-color:var(--gold);padding:0}
+.rsvp-submit{justify-self:center;display:inline-flex;align-items:center;gap:9px;margin-top:8px;padding:13px 26px;border:1px solid var(--gold-a4);border-radius:50px;background:rgba(223,177,91,.1);color:var(--gold);font:600 10px 'Raleway',sans-serif;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.rsvp-submit:hover:not(:disabled){background:rgba(223,177,91,.22);border-color:var(--gold);transform:translateY(-1px)}.rsvp-submit:disabled{opacity:.65;cursor:wait}.rsvp-submit svg{width:14px;height:14px}
+.rsvp-status{min-height:20px;margin:0;text-align:center;font:500 15px 'Cormorant Garamond',serif;color:var(--faf)}.rsvp-status.success{color:var(--gold)}.rsvp-status.error{color:#efaaa0}
+@media(min-width:540px){.rsvp-form{grid-template-columns:1fr 1fr}.rsvp-field-full,.rsvp-submit,.rsvp-status{grid-column:1 / -1}.attendance-options{grid-template-columns:1fr 1fr}}
+
 /* ---- Footer ---- */
 .footer{background:rgba(12,4,2,0.98);padding:56px 24px;text-align:center;border-top:1px solid var(--gold-a2)}
 .footer-mantra{font-family:'Cinzel',Georgia,serif;font-size:clamp(12px,3.5vw,16px);color:var(--gold);letter-spacing:.2em;margin-bottom:12px}

@@ -257,20 +257,9 @@
           <label for="guest-name">Your name <span aria-hidden="true">*</span></label>
           <input id="guest-name" name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Enter your name">
         </div>
-        <div class="rsvp-field" id="guest-count-field">
+        <div class="rsvp-field">
           <label for="guest-phone">Mobile number <em>(optional)</em></label>
           <input id="guest-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="Your mobile number">
-        </div>
-        <div class="rsvp-field">
-          <label for="guest-count">Number attending <span aria-hidden="true">*</span></label>
-          <select id="guest-count" name="guests" required>
-            <option value="" selected disabled>Select</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5+">5+</option>
-          </select>
         </div>
         <fieldset class="rsvp-field rsvp-field-full attendance-field">
           <legend>Will you be attending? <span aria-hidden="true">*</span></legend>
@@ -279,6 +268,17 @@
             <label class="attendance-option"><input type="radio" name="attendance" value="Regretfully declines" required><span>Regretfully declines</span></label>
           </div>
         </fieldset>
+        <div class="rsvp-field rsvp-field-full" id="guest-count-field">
+          <label for="guest-count">Number attending <span aria-hidden="true">*</span></label>
+          <select id="guest-count" name="guests" disabled>
+            <option value="" selected>Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5+">5+</option>
+          </select>
+        </div>
         <div class="rsvp-field rsvp-field-full">
           <label for="guest-message">A note for the couple <em>(optional)</em></label>
           <textarea id="guest-message" name="message" rows="3" maxlength="500" placeholder="Share your wishes"></textarea>

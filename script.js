@@ -279,7 +279,8 @@ function updateGuestCountVisibility() {
   if (!rsvpForm || !guestCountField || !guestCount) return;
   const attendance = rsvpForm.querySelector("input[name='attendance']:checked")?.value;
   const isAttending = attendance === "Joyfully accepts";
-  guestCountField.hidden = attendance === "Regretfully declines";
+  guestCountField.hidden = false;
+  guestCount.disabled = !isAttending;
   guestCount.required = isAttending;
 
   if (!isAttending) {

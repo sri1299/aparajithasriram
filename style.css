@@ -152,6 +152,7 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 .rsvp-field select{background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
 .rsvp-field input::placeholder,.rsvp-field textarea::placeholder{color:rgba(250,244,227,.45)}
 .rsvp-field input:focus,.rsvp-field select:focus,.rsvp-field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(223,177,91,.12)}
+.rsvp-field select:disabled{border-color:rgba(223,177,91,.16);background-color:rgba(255,255,255,.06);color:rgba(250,244,227,.36);cursor:not-allowed}
 .attendance-field{border:0;padding:0;margin:0}.attendance-options{display:grid;grid-template-columns:1fr;gap:10px}
 .attendance-option{display:flex!important;align-items:center;gap:10px;border:1px solid rgba(223,177,91,.26);border-radius:3px;padding:12px 14px;color:var(--faf)!important;font:500 16px 'Cormorant Garamond',serif!important;letter-spacing:0!important;text-transform:none!important;cursor:pointer;transition:background .2s,border-color .2s}
 .attendance-option:has(input:checked){border-color:var(--gold);background:rgba(223,177,91,.1)}

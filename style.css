@@ -142,7 +142,7 @@ body{background:var(--bg-deep);color:var(--cream);min-height:100vh;overflow-x:hi
 /* ---- RSVP Section ---- */
 .rsvp-section{position:relative;padding:72px 24px;background:radial-gradient(ellipse at 50% 0%,rgba(130,57,17,.28),transparent 56%),linear-gradient(150deg,rgba(28,9,3,.98),rgba(11,3,1,.99));text-align:center;overflow:hidden}
 .rsvp-section::before{content:'';position:absolute;inset:10px;border:1px solid var(--gold-a1);pointer-events:none}
-.rsvp-title{font-family:'Dancing Script','Great Vibes',cursive;font-size:clamp(40px,11vw,65px);font-weight:500;color:var(--gold);line-height:1.1;text-shadow:0 0 30px rgba(223,177,91,.25)}
+.rsvp-title{margin-bottom:32px;font-family:'Dancing Script','Great Vibes',cursive;font-size:clamp(40px,11vw,65px);font-weight:500;color:var(--gold);line-height:1.1;text-shadow:0 0 30px rgba(223,177,91,.25)}
 .rsvp-intro{max-width:440px;margin:16px auto 32px;font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.4vw,19px);line-height:1.55;color:var(--faf)}
 .rsvp-form{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:18px;max-width:590px;margin:0 auto;text-align:left}
 .rsvp-field{display:flex;flex-direction:column;gap:8px}
